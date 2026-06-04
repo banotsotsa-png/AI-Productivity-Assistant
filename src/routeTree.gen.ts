@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TaskPlannerRouteImport } from './routes/task-planner'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as MeetingNotesRouteImport } from './routes/meeting-notes'
 import { Route as EmailRouteImport } from './routes/email'
@@ -21,6 +22,11 @@ import { Route as ApiChatRouteImport } from './routes/api/chat'
 const TaskPlannerRoute = TaskPlannerRouteImport.update({
   id: '/task-planner',
   path: '/task-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/email': typeof EmailRoute
   '/meeting-notes': typeof MeetingNotesRoute
   '/research': typeof ResearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/task-planner': typeof TaskPlannerRoute
   '/api/chat': typeof ApiChatRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/email': typeof EmailRoute
   '/meeting-notes': typeof MeetingNotesRoute
   '/research': typeof ResearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/task-planner': typeof TaskPlannerRoute
   '/api/chat': typeof ApiChatRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/email': typeof EmailRoute
   '/meeting-notes': typeof MeetingNotesRoute
   '/research': typeof ResearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/task-planner': typeof TaskPlannerRoute
   '/api/chat': typeof ApiChatRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/email'
     | '/meeting-notes'
     | '/research'
+    | '/sitemap.xml'
     | '/task-planner'
     | '/api/chat'
     | '/chat/$threadId'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/email'
     | '/meeting-notes'
     | '/research'
+    | '/sitemap.xml'
     | '/task-planner'
     | '/api/chat'
     | '/chat/$threadId'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/email'
     | '/meeting-notes'
     | '/research'
+    | '/sitemap.xml'
     | '/task-planner'
     | '/api/chat'
     | '/chat/$threadId'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   EmailRoute: typeof EmailRoute
   MeetingNotesRoute: typeof MeetingNotesRoute
   ResearchRoute: typeof ResearchRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TaskPlannerRoute: typeof TaskPlannerRoute
   ApiChatRoute: typeof ApiChatRoute
   ChatThreadIdRoute: typeof ChatThreadIdRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/task-planner'
       fullPath: '/task-planner'
       preLoaderRoute: typeof TaskPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmailRoute: EmailRoute,
   MeetingNotesRoute: MeetingNotesRoute,
   ResearchRoute: ResearchRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TaskPlannerRoute: TaskPlannerRoute,
   ApiChatRoute: ApiChatRoute,
   ChatThreadIdRoute: ChatThreadIdRoute,
