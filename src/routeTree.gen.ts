@@ -9,9 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TaskPlannerRouteImport } from './routes/task-planner'
+import { Route as ResearchRouteImport } from './routes/research'
+import { Route as MeetingNotesRouteImport } from './routes/meeting-notes'
 import { Route as EmailRouteImport } from './routes/email'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TaskPlannerRoute = TaskPlannerRouteImport.update({
+  id: '/task-planner',
+  path: '/task-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetingNotesRoute = MeetingNotesRouteImport.update({
+  id: '/meeting-notes',
+  path: '/meeting-notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EmailRoute = EmailRouteImport.update({
   id: '/email',
   path: '/email',
@@ -26,31 +44,70 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/email': typeof EmailRoute
+  '/meeting-notes': typeof MeetingNotesRoute
+  '/research': typeof ResearchRoute
+  '/task-planner': typeof TaskPlannerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/email': typeof EmailRoute
+  '/meeting-notes': typeof MeetingNotesRoute
+  '/research': typeof ResearchRoute
+  '/task-planner': typeof TaskPlannerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/email': typeof EmailRoute
+  '/meeting-notes': typeof MeetingNotesRoute
+  '/research': typeof ResearchRoute
+  '/task-planner': typeof TaskPlannerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/email'
+  fullPaths: '/' | '/email' | '/meeting-notes' | '/research' | '/task-planner'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/email'
-  id: '__root__' | '/' | '/email'
+  to: '/' | '/email' | '/meeting-notes' | '/research' | '/task-planner'
+  id:
+    | '__root__'
+    | '/'
+    | '/email'
+    | '/meeting-notes'
+    | '/research'
+    | '/task-planner'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EmailRoute: typeof EmailRoute
+  MeetingNotesRoute: typeof MeetingNotesRoute
+  ResearchRoute: typeof ResearchRoute
+  TaskPlannerRoute: typeof TaskPlannerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/task-planner': {
+      id: '/task-planner'
+      path: '/task-planner'
+      fullPath: '/task-planner'
+      preLoaderRoute: typeof TaskPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meeting-notes': {
+      id: '/meeting-notes'
+      path: '/meeting-notes'
+      fullPath: '/meeting-notes'
+      preLoaderRoute: typeof MeetingNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/email': {
       id: '/email'
       path: '/email'
@@ -71,6 +128,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EmailRoute: EmailRoute,
+  MeetingNotesRoute: MeetingNotesRoute,
+  ResearchRoute: ResearchRoute,
+  TaskPlannerRoute: TaskPlannerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
