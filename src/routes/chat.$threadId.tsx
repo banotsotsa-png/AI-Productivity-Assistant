@@ -52,7 +52,7 @@ function ChatPage() {
 
   const { messages, sendMessage, status } = useChat({
     id: threadId,
-    initialMessages: thread?.messages || [],
+    messages: thread?.messages || [],
     transport: chatTransport,
     onError: (err) => {
       console.error("Chat error:", err);
