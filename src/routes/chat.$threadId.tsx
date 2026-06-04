@@ -27,6 +27,8 @@ interface ChatThread {
 }
 
 function loadThreads(): ChatThread[] {
+  if (typeof window === "undefined") return [];
+
   try {
     return JSON.parse(localStorage.getItem("ai-assistant-threads") || "[]");
   } catch {
@@ -35,6 +37,8 @@ function loadThreads(): ChatThread[] {
 }
 
 function saveThreads(threads: ChatThread[]) {
+  if (typeof window === "undefined") return;
+
   localStorage.setItem("ai-assistant-threads", JSON.stringify(threads));
 }
 
