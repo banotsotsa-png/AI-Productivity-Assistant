@@ -59,9 +59,7 @@ export function ToolPageLayout({
       <div className="space-y-1">
         <div className="flex items-center gap-2">
           <Icon className="h-5 w-5 text-primary" />
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            {title}
-          </h1>
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">{title}</h1>
         </div>
         <p className="text-muted-foreground">{description}</p>
       </div>
@@ -69,11 +67,7 @@ export function ToolPageLayout({
       <div className="space-y-4 rounded-xl border bg-card p-5">
         <h2 className="font-semibold text-card-foreground">Input Details</h2>
         {inputs}
-        <Button
-          onClick={onGenerate}
-          disabled={isLoading}
-          className="w-full"
-        >
+        <Button onClick={onGenerate} disabled={isLoading} className="w-full">
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -88,15 +82,9 @@ export function ToolPageLayout({
       {output && (
         <div className="space-y-3 rounded-xl border bg-card p-5">
           <div className="flex items-center justify-between">
-            <h2 className="font-semibold text-card-foreground">
-              {outputLabel}
-            </h2>
+            <h2 className="font-semibold text-card-foreground">{outputLabel}</h2>
             <div className="flex gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleCopy}
-              >
+              <Button variant="ghost" size="sm" onClick={handleCopy}>
                 {copied ? (
                   <Check className="mr-1.5 h-3.5 w-3.5" />
                 ) : (
@@ -104,11 +92,7 @@ export function ToolPageLayout({
                 )}
                 {copied ? "Copied" : "Copy"}
               </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleDownload}
-              >
+              <Button variant="ghost" size="sm" onClick={handleDownload}>
                 <Download className="mr-1.5 h-3.5 w-3.5" />
                 Download
               </Button>

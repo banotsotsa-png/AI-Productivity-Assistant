@@ -46,10 +46,7 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="px-3 py-4">
-        <Link
-          to="/"
-          className="flex items-center gap-2 px-1 text-sidebar-foreground"
-        >
+        <Link to="/" className="flex items-center gap-2 px-1 text-sidebar-foreground">
           <img
             src={logoImg}
             alt="AI Assistant"
@@ -57,11 +54,7 @@ export function AppSidebar() {
             width={32}
             height={32}
           />
-          {!collapsed && (
-            <span className="text-sm font-semibold tracking-tight">
-              AI Assistant
-            </span>
-          )}
+          {!collapsed && <span className="text-sm font-semibold tracking-tight">AI Assistant</span>}
         </Link>
       </SidebarHeader>
       <SidebarContent>
@@ -76,10 +69,7 @@ export function AppSidebar() {
                     isActive={isActive(item.url)}
                     tooltip={collapsed ? item.title : undefined}
                   >
-                    <Link
-                      to={item.url}
-                      className="flex items-center gap-2"
-                    >
+                    <Link to={item.url} className="flex items-center gap-2">
                       <item.icon className="h-4 w-4 shrink-0" />
                       <span>{item.title}</span>
                     </Link>

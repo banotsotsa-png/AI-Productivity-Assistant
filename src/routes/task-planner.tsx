@@ -66,9 +66,7 @@ function TaskPlannerPage() {
       <div className="space-y-1">
         <div className="flex items-center gap-2">
           <ClipboardList className="h-5 w-5 text-primary" />
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            AI Task Planner
-          </h1>
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">AI Task Planner</h1>
         </div>
         <p className="text-muted-foreground">
           Describe your goal and get a detailed, actionable task plan with priorities and timelines.
@@ -128,7 +126,11 @@ function TaskPlannerPage() {
             <h2 className="font-semibold text-card-foreground">Task Plan</h2>
             <div className="flex gap-2">
               <Button variant="ghost" size="sm" onClick={handleCopy}>
-                {copied ? <Check className="mr-1.5 h-3.5 w-3.5" /> : <Copy className="mr-1.5 h-3.5 w-3.5" />}
+                {copied ? (
+                  <Check className="mr-1.5 h-3.5 w-3.5" />
+                ) : (
+                  <Copy className="mr-1.5 h-3.5 w-3.5" />
+                )}
                 {copied ? "Copied" : "Copy"}
               </Button>
               <Button variant="ghost" size="sm" onClick={handleDownload}>

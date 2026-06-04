@@ -1,4 +1,8 @@
-import { createLovableAiGatewayProvider, getLovableAiGatewayRunId, withLovableAiGatewayRunIdHeader } from "@/lib/ai-gateway.server";
+import {
+  createLovableAiGatewayProvider,
+  getLovableAiGatewayRunId,
+  withLovableAiGatewayRunIdHeader,
+} from "@/lib/ai-gateway.server";
 import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 
@@ -23,7 +27,8 @@ export const Route = createFileRoute("/api/chat")({
         const model = gateway("google/gemini-3-flash-preview");
         const result = streamText({
           model,
-          system: "You are a helpful AI workplace productivity assistant. You help professionals with emails, meetings, planning, research, and general workplace questions. Be concise, professional, and actionable.",
+          system:
+            "You are a helpful AI workplace productivity assistant. You help professionals with emails, meetings, planning, research, and general workplace questions. Be concise, professional, and actionable.",
           messages: await convertToModelMessages(messages as UIMessage[]),
         });
 

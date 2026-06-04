@@ -14,9 +14,15 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Dashboard — AI Workplace Productivity Assistant" },
-      { name: "description", content: "Your central hub for AI-powered workplace productivity tools." },
+      {
+        name: "description",
+        content: "Your central hub for AI-powered workplace productivity tools.",
+      },
       { property: "og:title", content: "Dashboard — AI Workplace Productivity Assistant" },
-      { property: "og:description", content: "Your central hub for AI-powered workplace productivity tools." },
+      {
+        property: "og:description",
+        content: "Your central hub for AI-powered workplace productivity tools.",
+      },
     ],
   }),
   component: DashboardPage,
@@ -64,9 +70,7 @@ function DashboardPage() {
   return (
     <div className="mx-auto max-w-5xl space-y-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground">
-          Welcome back
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Welcome back</h1>
         <p className="text-muted-foreground">
           Choose a tool below to supercharge your productivity with AI.
         </p>
@@ -79,9 +83,7 @@ function DashboardPage() {
             to={tool.url}
             className="group flex flex-col gap-3 rounded-xl border bg-card p-5 transition-colors hover:bg-accent"
           >
-            <div
-              className={`flex h-10 w-10 items-center justify-center rounded-lg ${tool.color}`}
-            >
+            <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${tool.color}`}>
               <tool.icon className="h-5 w-5" />
             </div>
             <div className="space-y-1">
@@ -100,14 +102,12 @@ function DashboardPage() {
         <div className="flex items-start gap-3">
           <Shield className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" />
           <div className="space-y-1">
-            <h3 className="font-semibold text-card-foreground">
-              Responsible AI Use
-            </h3>
+            <h3 className="font-semibold text-card-foreground">Responsible AI Use</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              AI-generated outputs should be reviewed before use in professional contexts.
-              This assistant helps you draft and organize content, but you remain responsible
-              for accuracy, tone, and appropriateness. Always verify facts and ensure outputs
-              align with your organization&apos;s policies and standards.
+              AI-generated outputs should be reviewed before use in professional contexts. This
+              assistant helps you draft and organize content, but you remain responsible for
+              accuracy, tone, and appropriateness. Always verify facts and ensure outputs align with
+              your organization&apos;s policies and standards.
             </p>
           </div>
         </div>

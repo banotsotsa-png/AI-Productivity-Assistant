@@ -79,7 +79,7 @@ function ChatPage() {
         const updated = prev.map((t) =>
           t.id === threadId
             ? { ...t, messages: messages as UIMessage[], updatedAt: Date.now() }
-            : t
+            : t,
         );
         saveThreads(updated);
         return updated;
@@ -95,9 +95,7 @@ function ChatPage() {
         if (text) {
           const title = text.slice(0, 40) + (text.length > 40 ? "..." : "");
           setThreads((prev) => {
-            const updated = prev.map((t) =>
-              t.id === threadId ? { ...t, title } : t
-            );
+            const updated = prev.map((t) => (t.id === threadId ? { ...t, title } : t));
             saveThreads(updated);
             return updated;
           });
@@ -113,7 +111,7 @@ function ChatPage() {
       sendMessage({ text: inputValue.trim() });
       setInputValue("");
     },
-    [inputValue, isLoading, sendMessage]
+    [inputValue, isLoading, sendMessage],
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -205,9 +203,7 @@ function ChatPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                   <Bot className="h-6 w-6 text-primary" />
                 </div>
-                <h2 className="text-lg font-semibold text-foreground">
-                  How can I help you today?
-                </h2>
+                <h2 className="text-lg font-semibold text-foreground">How can I help you today?</h2>
                 <p className="max-w-sm text-center text-sm text-muted-foreground">
                   Ask me anything about work, productivity, planning, or general questions.
                 </p>
@@ -259,7 +255,8 @@ function ChatPage() {
             </Button>
           </form>
           <p className="mt-2 text-center text-xs text-muted-foreground">
-            AI-generated responses may contain inaccuracies. Please review before using in professional contexts.
+            AI-generated responses may contain inaccuracies. Please review before using in
+            professional contexts.
           </p>
         </div>
       </div>
@@ -294,9 +291,7 @@ function ChatMessage({ message }: { message: UIMessage }) {
       <div className={`max-w-[80%] space-y-1 ${isUser ? "text-right" : ""}`}>
         <div
           className={`inline-block rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-            isUser
-              ? "bg-primary text-primary-foreground"
-              : "bg-muted text-foreground"
+            isUser ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
           }`}
         >
           <div className="prose-sm-custom prose-custom">

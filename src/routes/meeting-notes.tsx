@@ -106,11 +106,7 @@ function MeetingNotesPage() {
             </SelectContent>
           </Select>
         </div>
-        <Button
-          onClick={handleGenerate}
-          disabled={isLoading || !notes}
-          className="w-full"
-        >
+        <Button onClick={handleGenerate} disabled={isLoading || !notes} className="w-full">
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -128,7 +124,11 @@ function MeetingNotesPage() {
             <h2 className="font-semibold text-card-foreground">Summary</h2>
             <div className="flex gap-2">
               <Button variant="ghost" size="sm" onClick={handleCopy}>
-                {copied ? <Check className="mr-1.5 h-3.5 w-3.5" /> : <Copy className="mr-1.5 h-3.5 w-3.5" />}
+                {copied ? (
+                  <Check className="mr-1.5 h-3.5 w-3.5" />
+                ) : (
+                  <Copy className="mr-1.5 h-3.5 w-3.5" />
+                )}
                 {copied ? "Copied" : "Copy"}
               </Button>
               <Button variant="ghost" size="sm" onClick={handleDownload}>
