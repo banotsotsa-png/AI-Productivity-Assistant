@@ -50,9 +50,13 @@ export function AppSidebar() {
           to="/"
           className="flex items-center gap-2 px-1 text-sidebar-foreground"
         >
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Sparkles className="h-4 w-4" />
-          </div>
+          <img
+            src={logoImg}
+            alt="AI Assistant"
+            className="h-8 w-8 shrink-0 rounded-lg object-cover"
+            width={32}
+            height={32}
+          />
           {!collapsed && (
             <span className="text-sm font-semibold tracking-tight">
               AI Assistant
