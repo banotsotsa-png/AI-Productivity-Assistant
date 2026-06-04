@@ -158,7 +158,7 @@ function ChatPage() {
       <div className="hidden w-64 flex-col border-r bg-sidebar lg:flex">
         <div className="flex items-center justify-between p-3">
           <h2 className="text-sm font-semibold text-sidebar-foreground">Conversations</h2>
-          <Button variant="ghost" size="icon-sm" onClick={handleNewThread} className="h-7 w-7">
+          <Button variant="ghost" size="icon" onClick={handleNewThread} className="h-7 w-7">
             <Plus className="h-4 w-4" />
             <span className="sr-only">New conversation</span>
           </Button>
