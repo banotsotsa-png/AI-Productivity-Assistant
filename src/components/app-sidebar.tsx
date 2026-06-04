@@ -6,8 +6,8 @@ import {
   ClipboardList,
   Search,
   MessageSquare,
-  Sparkles,
 } from "lucide-react";
+import logoImg from "@/assets/logo.png";
 
 import {
   Sidebar,
